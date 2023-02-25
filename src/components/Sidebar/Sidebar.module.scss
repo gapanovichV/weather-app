@@ -1,0 +1,73 @@
+@import '../../variables';
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	float: left;
+	height: 100vh;
+	width: 20%;
+	box-sizing: border-box;
+	background-color: $main-color;
+	padding: 20px;
+}
+
+.nav {
+	margin-bottom: 30px;
+	&__search {
+		display: flex;
+		padding: 10px;
+		align-items: center;
+		background-color: $second-color;
+		border-radius: 30px;
+		&__input {
+			width: 100%;
+			box-sizing: border-box;
+			background-color: $second-color;
+			outline: none;
+			border: none;
+		}
+		&__btn {
+			border: none;
+			background-color: inherit;
+			cursor: pointer;
+		}
+	}
+}
+
+.weather__now {
+	font-weight: 400;
+	font-size: 80px;
+	margin-bottom: 25px;
+	span {
+		font-size: 70px;
+		vertical-align: 21px;
+	}
+}
+.weather__info {
+	&__where {
+		font-weight: 500;
+		font-size: 25px;
+		margin-bottom: 10px;
+	}
+	&__date {
+		font-weight: 400;
+		span {
+			margin-left: 5px;
+			font-weight: 400;
+			opacity: 50%;
+		}
+	}
+	&__rainfall {
+		gap: 10px;
+		display: flex;
+		align-items: center;
+		margin-bottom: 10px;
+	}
+	hr {
+		height: 1px;
+		background-color: $second-color;
+		border: none;
+		margin-bottom: 20px;
+		margin-top: 20px;
+	}
+}
