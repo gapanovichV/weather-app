@@ -1,0 +1,25 @@
+@import '../../variables';
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 130px;
+	width: 90px;
+	padding: 5px 15px;
+	border-radius: 10px;
+	background-color: $main-color;
+	&__title {
+		font-weight: 500;
+	}
+	&__img {
+		margin-bottom: 10px;
+	}
+	&__descr {
+		font-weight: 500;
+		span {
+			font-weight: 500;
+			opacity: 50%;
+		}
+	}
+}
