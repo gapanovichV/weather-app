@@ -1,6 +1,7 @@
 import React from 'react';
 
-import glass from '../../img/search-symbol.png';
+import Search from '../Search/Search';
+
 import icon from '../../img/SVG/day_partial_cloud.svg';
 import cloud from '../../img/SVG/cloudy.svg';
 import rain from '../../img/SVG/rain.svg';
@@ -9,18 +10,7 @@ import style from './Sidebar.module.scss';
 const Sidebar = () => {
 	return (
 		<div className={style.wrapper}>
-			<div className={style.nav}>
-				<div className={style.nav__search}>
-					<input
-						placeholder="Search for places ..."
-						className={style.nav__search__input}
-						type="text"
-					/>
-					<button className={style.nav__search__btn}>
-						<img src={glass} alt="Search" />
-					</button>
-				</div>
-			</div>
+      <Search/>
 			<img className={style.weather__icon} src={icon} alt="погода" />
 			<div className={style.weather__info}>
 				<h1 className={style.weather__now}>12&#xb0;<span>c</span></h1>

@@ -11,28 +11,6 @@
 	padding: 20px;
 }
 
-.nav {
-	margin-bottom: 30px;
-	&__search {
-		display: flex;
-		padding: 10px;
-		align-items: center;
-		background-color: $second-color;
-		border-radius: 30px;
-		&__input {
-			width: 100%;
-			box-sizing: border-box;
-			background-color: $second-color;
-			outline: none;
-			border: none;
-		}
-		&__btn {
-			border: none;
-			background-color: inherit;
-			cursor: pointer;
-		}
-	}
-}
 
 .weather__now {
 	font-weight: 400;
