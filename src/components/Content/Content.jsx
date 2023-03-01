@@ -1,8 +1,9 @@
 import React from 'react';
 
+import CardWeek from '../Card/CardWeek';
+
 import style from './Content.module.scss';
 
-import CardWeek from '../Card/CardWeek';
 const Content = () => {
 	return (
 		<div className={style.wrapper}>
