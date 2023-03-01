@@ -7,7 +7,7 @@
 		padding: 10px;
 		align-items: center;
 		background-color: $second-color;
-		border-radius: 30px;
+		border-radius: 20px;
 		&__input {
 			width: 100%;
 			box-sizing: border-box;
@@ -20,5 +20,42 @@
 			background-color: inherit;
 			cursor: pointer;
 		}
+	}
+	.open {
+		border-radius: 20px 20px 0 0;
+	}
+}
+
+.dropdown {
+	position: relative;
+	top: -10px;
+	background-color: $second-color;
+	&__menu {
+		position: absolute;
+		list-style-type: none;
+		background-color: $second-color;
+		margin: 10px 0;
+		padding: 0;
+		width: 100%;
+		border-radius: 20px;
+		&__item {
+			margin: 2;
+			background-color: $second-color;
+			&:hover {
+				background-color: lightgray;
+			}
+			&:last-child {
+				border-radius: 0 0 20px 20px;
+			}
+		}
+	}
+	.btn_dropdown {
+		width: 100%;
+		height: 100%;
+		text-align: left;
+		background: none;
+		border: none;
+		padding: 10px;
+		cursor: pointer;
 	}
 }

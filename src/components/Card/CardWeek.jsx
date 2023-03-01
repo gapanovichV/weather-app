@@ -1,7 +1,8 @@
 import React from 'react';
 
-import style from './CardWeek.module.scss';
 import s from '../../img/SVG/fog.svg';
+
+import style from './CardWeek.module.scss';
 
 const CardWeek = () => {
 	return (
