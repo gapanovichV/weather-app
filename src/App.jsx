@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import { fetchWeather } from './components/redux/weatherDay';
+import { fetchWeatherWeek } from './components/redux/weatherWeek';
 
 import Content from './components/Content/Content';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -14,7 +15,9 @@ const App = () => {
 	React.useEffect(() => {
 		function geo_success(position) {
 			const coords = position.coords;
-			dispatch(fetchWeather({ lat: coords.latitude, lon: coords.longitude }));
+			const geo = { lat: coords.latitude, lon: coords.longitude };
+			dispatch(fetchWeather(geo));
+			dispatch(fetchWeatherWeek(geo));
 		}
 		function geo_error() {
 			dispatch(fetchWeather({ lat: 0, lon: 0 }));

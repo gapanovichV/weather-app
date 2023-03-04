@@ -1,16 +1,28 @@
 import React from 'react';
 
-import s from '../../img/SVG/fog.svg';
+import { weatherIcon } from '../weatherIcon';
 
 import style from './CardWeek.module.scss';
 
-const CardWeek = () => {
+const CardWeek = ({ maxTemp, minTemp, dateTime, codeIcon }) => {
+	const getWeekDay = (date) => {
+		const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Tru', 'Fri', 'Sat'];
+
+		return days[date.getDay()];
+	};
+	const date = new Date(dateTime);
 	return (
 		<div className={style.card}>
-			<div className={style.card__title}>Sun</div>
-			<img className={style.card__img} width={70} src={s} alt="s" />
+			<div className={style.card__title}>{getWeekDay(date)}</div>
+			<img
+				className={style.card__img}
+				width={70}
+        height={55}
+				src={`../src/img/SVG/${weatherIcon(codeIcon)}`}
+				alt="weather"
+			/>
 			<div className={style.card__descr}>
-				15&#xb0; <span>-3&#xb0;</span>
+				{Math.round(maxTemp)}&#xb0; <span>{Math.round(minTemp)}&#xb0;</span>
 			</div>
 		</div>
 	);
