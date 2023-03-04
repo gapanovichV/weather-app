@@ -3,14 +3,14 @@ import axios from 'axios';
 
 const API = import.meta.env.VITE_API_WEATHER;
 
-export const fetchWeather = createAsyncThunk(
-	'weather/fetchWeather',
+export const fetchWeatherWeek = createAsyncThunk(
+	'weather/fetchWeatherWeek',
 	async function ({ lat, lon }, { rejectWithValue }) {
 		try {
 			const res = await axios(
-				`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&units=metric&lang=ru&key=${API}`,
+				`https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&days=8&units=metric&lang=ru&key=${API}`,
 			);
-			return res.data.data[0];
+			return res.data.data;
 		} catch (error) {
 			return rejectWithValue(error.message);
 		}
@@ -18,28 +18,28 @@ export const fetchWeather = createAsyncThunk(
 );
 
 const initialState = {
-	value: {},
+	value: [],
 	status: null,
 	error: null,
 };
 
-export const weatherDay = createSlice({
+export const weatherWeek = createSlice({
 	name: 'weather',
 	initialState,
 	reducers: {},
 	extraReducers: {
-		[fetchWeather.pending]: (state) => {
+		[fetchWeatherWeek.pending]: (state) => {
 			state.status = 'loading';
 		},
-		[fetchWeather.fulfilled]: (state, action) => {
+		[fetchWeatherWeek.fulfilled]: (state, action) => {
 			state.status = 'ok';
 			state.value = action.payload;
 		},
-		[fetchWeather.rejected]: (state, action) => {
+		[fetchWeatherWeek.rejected]: (state, action) => {
 			state.status = 'error';
 			state.error = action.payload;
 		},
 	},
 });
 
-export default weatherDay.reducer;
+export default weatherWeek.reducer;

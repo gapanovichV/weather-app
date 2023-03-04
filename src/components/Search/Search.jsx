@@ -7,8 +7,9 @@ import { fetchWeather } from '../redux/weatherDay';
 
 import glass from '../../img/search-symbol.png';
 import style from './Search.module.scss';
+import { fetchWeatherWeek } from '../redux/weatherWeek';
 
-const API = import.meta.env.VITE_API_WEATHER;
+const API = import.meta.env.VITE_API_GEO;
 
 const Search = () => {
 	const dispatch = useDispatch();
@@ -34,9 +35,18 @@ const Search = () => {
 
 	const handleClickSearch = (lat, lon) => {
 		dispatch(fetchWeather({ lat, lon }));
+		dispatch(fetchWeatherWeek({ lat, lon }));
 		setOpen(false);
 		setCity('');
 		setDate([]);
+	};
+
+  const handleChangeInput = (e) => {
+    setCity(e.target.value)
+  }
+
+	const handleKeyDown = (e) => {
+		if (e.keyCode === 13) handleClickDropDown();
 	};
 
 	const classNames = cn(style.nav__search, { [style.open]: open });
@@ -44,8 +54,9 @@ const Search = () => {
 		<div className={style.nav}>
 			<div className={classNames}>
 				<input
+					onKeyDown={handleKeyDown}
 					value={city}
-					onChange={(e) => setCity(e.target.value)}
+					onChange={handleChangeInput}
 					placeholder="Search for places ..."
 					className={style.nav__search__input}
 					type="text"
