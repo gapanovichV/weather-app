@@ -12,26 +12,26 @@
 }
 
 .weather__icon {
-	width: 280px;
-	height: 280px;
+	width: 100%;
 }
 .weather__now {
 	font-weight: 400;
-	font-size: 80px;
+	font-size: 100px;
 	margin-bottom: 25px;
 	span {
-		font-size: 70px;
-		vertical-align: 21px;
+		font-size: 80px;
+		vertical-align: 28px;
 	}
 }
 .weather__info {
 	&__where {
 		font-weight: 500;
-		font-size: 25px;
+		font-size: 40px;
 		margin-bottom: 10px;
 	}
 	&__date {
 		font-weight: 400;
+		font-size: 25px;
 		span {
 			margin-left: 5px;
 			font-weight: 400;
@@ -43,6 +43,10 @@
 		display: flex;
 		align-items: center;
 		margin-bottom: 10px;
+		font-size: 20px;
+		img {
+			width: 50px;
+		}
 	}
 	hr {
 		height: 1px;

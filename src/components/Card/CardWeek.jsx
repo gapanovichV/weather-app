@@ -16,8 +16,6 @@ const CardWeek = ({ maxTemp, minTemp, dateTime, codeIcon }) => {
 			<div className={style.card__title}>{getWeekDay(date)}</div>
 			<img
 				className={style.card__img}
-				width={70}
-        height={55}
 				src={`../src/img/SVG/${weatherIcon(codeIcon)}`}
 				alt="weather"
 			/>

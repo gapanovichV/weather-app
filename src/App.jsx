@@ -1,6 +1,6 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 
+import { useDispatch } from 'react-redux';
 import { fetchWeather } from './components/redux/weatherDay';
 import { fetchWeatherWeek } from './components/redux/weatherWeek';
 
