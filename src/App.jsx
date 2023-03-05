@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchWeather } from './components/redux/weatherDay';
 import { fetchWeatherWeek } from './components/redux/weatherWeek';
+import { setMode } from './components/redux/theme';
 
 import Content from './components/Content/Content';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -10,7 +11,13 @@ import Sidebar from './components/Sidebar/Sidebar';
 import './index.scss';
 
 const App = () => {
+	const theme = useSelector((state) => state.themeSlice);
 	const dispatch = useDispatch();
+
+	React.useEffect(() => {
+		document.documentElement.dataset.theme = theme;
+		localStorage.setItem('theme', theme);
+	}, [theme]);
 
 	React.useEffect(() => {
 		function geo_success(position) {

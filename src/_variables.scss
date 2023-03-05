@@ -1,9 +1,19 @@
-$main-color: #ffffff;
-$second-color: #f7f6f9;
+$main-color-light: #ffffff;
+$second-color-light: #f7f6f9;
+$text-color-light: #000;
 
+$main-color-dark: #555;
+$second-color-dark: #000;
+$text-color-dark: #fff;
 
+:root[data-theme='light'] {
+	--main-bg-color: #{$main-color-light};
+	--second-bg-color: #{$second-color-light};
+	--text-color: #{$text-color-light};
+}
 
-:root {
-  $main-color: #555;
-	$second-color: #000;
+:root[data-theme='dark'] {
+	--main-bg-color: #{$main-color-dark};
+	--second-bg-color: #{$second-color-dark};
+	--text-color: #{$text-color-dark};
 }
