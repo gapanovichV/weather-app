@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import Search from '../Search/Search';
+import Toggle from '../Toggle/Toggle';
 import { weatherIcon } from '../weatherIcon';
 
 import style from './Sidebar.module.scss';
@@ -31,8 +32,7 @@ const Sidebar = () => {
 						<div className={style.weather__info__date}>Дата и время скоро</div>
 						<hr />
 						<div className={style.weather__info__rainfall}>
-							<img src={`../src/img/SVG/${weatherIcon()}`} alt="cloud" /> Clouds -
-							{data.clouds}%
+							<img src={`../src/img/SVG/${weatherIcon()}`} alt="cloud" /> Clouds -{data.clouds}%
 						</div>
 						<div className={style.weather__info__rainfall}>
 							<img src={`../src/img/SVG/${weatherIcon()}`} alt="rain" /> Wind -
@@ -41,6 +41,9 @@ const Sidebar = () => {
 					</div>
 				</>
 			)}
+			<div className={style.mode}>
+				Сменить тему - <Toggle />
+			</div>
 		</div>
 	);
 };

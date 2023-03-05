@@ -6,14 +6,15 @@
 		display: flex;
 		padding: 10px;
 		align-items: center;
-		background-color: $second-color;
+		background-color: var(--second-bg-color);
 		border-radius: 20px;
 		&__input {
 			width: 100%;
 			box-sizing: border-box;
-			background-color: $second-color;
+			background-color: var(--second-bg-color);
 			outline: none;
 			border: none;
+      color: var(--text-color)
 		}
 		&__btn {
 			border: none;
@@ -29,18 +30,18 @@
 .dropdown {
 	position: relative;
 	top: -10px;
-	background-color: $second-color;
+	background-color: var(--second-bg-color);
 	&__menu {
 		position: absolute;
 		list-style-type: none;
-		background-color: $second-color;
+		background-color: var(--second-bg-color);
 		margin: 10px 0;
 		padding: 0;
 		width: 100%;
 		border-radius: 20px;
 		&__item {
 			margin: 2;
-			background-color: $second-color;
+			background-color: var(--second-bg-color);
 			&:hover {
 				background-color: lightgray;
 			}
