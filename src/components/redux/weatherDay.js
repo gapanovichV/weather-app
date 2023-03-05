@@ -27,18 +27,18 @@ export const weatherDay = createSlice({
 	name: 'weather',
 	initialState,
 	reducers: {},
-	extraReducers: {
-		[fetchWeather.pending]: (state) => {
+	extraReducers: (builder) => {
+		builder.addCase(fetchWeather.pending, (state) => {
 			state.status = 'loading';
-		},
-		[fetchWeather.fulfilled]: (state, action) => {
+		});
+		builder.addCase(fetchWeather.fulfilled, (state, action) => {
 			state.status = 'ok';
 			state.value = action.payload;
-		},
-		[fetchWeather.rejected]: (state, action) => {
+		});
+		builder.addCase(fetchWeather.rejected, (state, action) => {
 			state.status = 'error';
 			state.error = action.payload;
-		},
+		});
 	},
 });
 
