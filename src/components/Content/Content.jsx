@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import CardWeek from '../Card/CardWeek';
+import Highlights from '../Highlights/Highlights';
 
 import style from './Content.module.scss';
 
@@ -35,6 +36,7 @@ const Content = () => {
 					: null}
 			</div>
 			<div className={style.title}>Today`s Highlights</div>
+			<Highlights />
 		</div>
 	);
 };
