@@ -32,10 +32,10 @@ const Sidebar = () => {
 						<div className={style.weather__info__date}>Дата и время скоро</div>
 						<hr />
 						<div className={style.weather__info__rainfall}>
-							<img src={`../src/img/SVG/${weatherIcon()}`} alt="cloud" /> Clouds -{data.clouds}%
+							<img src={`../src/img/SVG/${weatherIcon()}`} alt="cloud" /> Clouds - {data.clouds}%
 						</div>
 						<div className={style.weather__info__rainfall}>
-							<img src={`../src/img/SVG/${weatherIcon()}`} alt="rain" /> Wind -
+							<img src={`../src/img/SVG/${weatherIcon()}`} alt="rain" /> Wind -{' '}
 							{data.wind_spd.toFixed(2)} m/s
 						</div>
 					</div>

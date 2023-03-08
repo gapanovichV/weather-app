@@ -32,10 +32,10 @@ const Search = () => {
 			console.log(error);
 		}
 	};
-
+  const params = 'm'
 	const handleClickSearch = (lat, lon) => {
-		dispatch(fetchWeather({ lat, lon }));
-		dispatch(fetchWeatherWeek({ lat, lon }));
+		dispatch(fetchWeather({ lat, lon, params }));
+		dispatch(fetchWeatherWeek({ lat, lon, params }));
 		setOpen(false);
 		setCity('');
 		setDate([]);

@@ -5,10 +5,15 @@ const API = import.meta.env.VITE_API_WEATHER;
 
 export const fetchWeather = createAsyncThunk(
 	'weather/fetchWeather',
-	async function ({ lat, lon }, { rejectWithValue }) {
+	async function ({ lat, lon, params }, { rejectWithValue }) {
 		try {
 			const res = await axios(
-				`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&units=metric&lang=ru&key=${API}`,
+				`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&lang=ru&key=${API}`,
+				{
+					params: {
+						units: params,
+					},
+				},
 			);
 			return res.data.data[0];
 		} catch (error) {
@@ -27,18 +32,18 @@ export const weatherDay = createSlice({
 	name: 'weather',
 	initialState,
 	reducers: {},
-	extraReducers: {
-		[fetchWeather.pending]: (state) => {
+	extraReducers: (builder) => {
+		builder.addCase(fetchWeather.pending, (state) => {
 			state.status = 'loading';
-		},
-		[fetchWeather.fulfilled]: (state, action) => {
+		});
+		builder.addCase(fetchWeather.fulfilled, (state, action) => {
 			state.status = 'ok';
 			state.value = action.payload;
-		},
-		[fetchWeather.rejected]: (state, action) => {
+		});
+		builder.addCase(fetchWeather.rejected, (state, action) => {
 			state.status = 'error';
 			state.error = action.payload;
-		},
+		});
 	},
 });
 
