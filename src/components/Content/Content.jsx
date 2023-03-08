@@ -1,5 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { fetchWeather } from '../redux/weatherDay';
+import { fetchWeatherWeek, weatherWeek } from '../redux/weatherWeek';
 
 import CardWeek from '../Card/CardWeek';
 import Highlights from '../Highlights/Highlights';
@@ -7,8 +10,18 @@ import Highlights from '../Highlights/Highlights';
 import style from './Content.module.scss';
 
 const Content = () => {
+	const dispatch = useDispatch();
+	const [params, setParams] = React.useState('m');
 	const valueWeek = useSelector((state) => state.weatherWeek);
 	const valueDay = useSelector((state) => state.weatherDay);
+
+	const { lat, lon } = valueDay.value;
+
+	React.useEffect(() => {
+    console.log(params)
+    dispatch(fetchWeather({lat, lon, params}))
+    dispatch(fetchWeatherWeek({lat, lon, params}))
+  }, [params]);
 
 	const statusWeek = valueWeek.status;
 	const dataWeek = valueWeek.value;
@@ -16,8 +29,12 @@ const Content = () => {
 		<div className={style.wrapper}>
 			<div className={style.header}>
 				<div className={style.header__select}>
-					<button className={style.header__select__btn}>&#xb0;C</button>
-					<button className={style.header__select__btn}>&#xb0;F</button>
+					<button onClick={() => setParams('m')} className={style.header__select__btn}>
+						&#xb0;C
+					</button>
+					<button onClick={() => setParams('i')} className={style.header__select__btn}>
+						&#xb0;F
+					</button>
 				</div>
 			</div>
 			<div className={style.card__wrapper}>

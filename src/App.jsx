@@ -3,7 +3,6 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchWeather } from './components/redux/weatherDay';
 import { fetchWeatherWeek } from './components/redux/weatherWeek';
-import { setMode } from './components/redux/theme';
 
 import Content from './components/Content/Content';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -18,11 +17,12 @@ const App = () => {
 		document.documentElement.dataset.theme = theme;
 		localStorage.setItem('theme', theme);
 	}, [theme]);
-
+	const params = 'm';
 	React.useEffect(() => {
 		function geo_success(position) {
 			const coords = position.coords;
-			const geo = { lat: coords.latitude, lon: coords.longitude };
+			const geo = { lat: coords.latitude, lon: coords.longitude, params };
+			console.log('alt, lon', geo);
 			dispatch(fetchWeather(geo));
 			dispatch(fetchWeatherWeek(geo));
 		}

@@ -7,8 +7,6 @@ const Highlights = () => {
 	const value = useSelector((state) => state.weatherDay);
 	const status = value.status;
 	const data = value.value;
-
-	console.log(data);
 	return (
 		<div className={style.wrapper}>
 			{status === 'ok' ? (
