@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import cn from 'classnames';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchWeather } from '../redux/weatherDay';
 
 import glass from '../../img/search-symbol.png';
@@ -13,6 +13,7 @@ const API = import.meta.env.VITE_API_GEO;
 
 const Search = () => {
 	const dispatch = useDispatch();
+  const units = useSelector(state => state.paramsSlice)
 	const [city, setCity] = React.useState('');
 	const [open, setOpen] = React.useState(false);
 	const [data, setDate] = React.useState([]);
@@ -32,10 +33,10 @@ const Search = () => {
 			console.log(error);
 		}
 	};
-  const params = 'm'
+  
 	const handleClickSearch = (lat, lon) => {
-		dispatch(fetchWeather({ lat, lon, params }));
-		dispatch(fetchWeatherWeek({ lat, lon, params }));
+		dispatch(fetchWeather({ lat, lon, units }));
+		dispatch(fetchWeatherWeek({ lat, lon, units }));
 		setOpen(false);
 		setCity('');
 		setDate([]);

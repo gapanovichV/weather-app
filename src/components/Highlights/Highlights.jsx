@@ -9,7 +9,7 @@ const Highlights = () => {
 	const data = value.value;
 	return (
 		<div className={style.wrapper}>
-			{status === 'ok' ? (
+			{status === 'ok' && (
 				<>
 					<div className={style.card}>
 						<div className={style.card__title}>UV Index</div>
@@ -73,7 +73,7 @@ const Highlights = () => {
 						</div>
 					</div>
 				</>
-			) : null}
+			)}
 		</div>
 	);
 };
