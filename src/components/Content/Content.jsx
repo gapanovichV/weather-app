@@ -1,9 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setParams } from '../redux/params';
-import { fetchWeather } from '../redux/weatherDay';
-import { fetchWeatherWeek, weatherWeek } from '../redux/weatherWeek';
+import { setUnits } from '../redux/params';
 
 import CardWeek from '../Card/CardWeek';
 import Highlights from '../Highlights/Highlights';
@@ -13,26 +11,28 @@ import style from './Content.module.scss';
 const Content = () => {
 	const dispatch = useDispatch();
 	const valueWeek = useSelector((state) => state.weatherWeek);
-	const [units, setUnits] = React.useState('m');
+	
+
+	const [unit, setUnit] = React.useState('');
 	const statusWeek = valueWeek.status;
 	const dataWeek = valueWeek.value;
 
 	const handleChangeParams = () => {
-		dispatch(setParams(units));
+		dispatch(setUnits(unit));
 	};
 
 	React.useEffect(() => {
 		handleChangeParams();
-	}, [units]);
+	}, [unit]);
 
 	return (
 		<div className={style.wrapper}>
 			<div className={style.header}>
 				<div className={style.header__select}>
-					<button onClick={() => setUnits('m')} className={style.header__select__btn}>
+					<button onClick={() => setUnit('m')} className={style.header__select__btn}>
 						&#xb0;C
 					</button>
-					<button onClick={() => setUnits('i')} className={style.header__select__btn}>
+					<button onClick={() => setUnit('i')} className={style.header__select__btn}>
 						&#xb0;F
 					</button>
 				</div>

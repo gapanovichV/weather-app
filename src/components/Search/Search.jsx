@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchWeather } from '../redux/weatherDay';
+import { setLatLon } from '../redux/params';
 
 import glass from '../../img/search-symbol.png';
 import style from './Search.module.scss';
@@ -13,7 +14,7 @@ const API = import.meta.env.VITE_API_GEO;
 
 const Search = () => {
 	const dispatch = useDispatch();
-  const units = useSelector(state => state.paramsSlice)
+	const units = useSelector((state) => state.paramsSlice.units);
 	const [city, setCity] = React.useState('');
 	const [open, setOpen] = React.useState(false);
 	const [data, setDate] = React.useState([]);
@@ -33,18 +34,19 @@ const Search = () => {
 			console.log(error);
 		}
 	};
-  
+
 	const handleClickSearch = (lat, lon) => {
-		dispatch(fetchWeather({ lat, lon, units }));
+    dispatch(fetchWeather({ lat, lon, units }));
 		dispatch(fetchWeatherWeek({ lat, lon, units }));
+		dispatch(setLatLon({ lat, lon }));
 		setOpen(false);
 		setCity('');
 		setDate([]);
 	};
 
-  const handleChangeInput = (e) => {
-    setCity(e.target.value)
-  }
+	const handleChangeInput = (e) => {
+		setCity(e.target.value);
+	};
 
 	const handleKeyDown = (e) => {
 		if (e.keyCode === 13) handleClickDropDown();

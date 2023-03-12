@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 const API = import.meta.env.VITE_API_WEATHER;
 
 export const fetchWeather = createAsyncThunk(
 	'weather/fetchWeather',
-	async function ({ lat, lon, units }, { rejectWithValue }) {
+	async function ({ lat, lon, units = 'm' }, { rejectWithValue }) {
 		try {
 			const res = await axios.get(
 				`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&lang=ru&key=${API}`,
@@ -15,7 +16,6 @@ export const fetchWeather = createAsyncThunk(
 					},
 				},
 			);
-			console.log('res', res);
 			return res.data.data[0];
 		} catch (error) {
 			return rejectWithValue(error.message);
@@ -41,7 +41,7 @@ export const weatherDay = createSlice({
 		builder.addCase(fetchWeather.rejected, (state, action) => {
 			state.status = 'error';
 			state.error = action.payload;
-      fetchWeather()
+			fetchWeather();
 		});
 	},
 });
