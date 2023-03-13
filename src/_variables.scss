@@ -1,19 +1,23 @@
 $main-color-light: #ffffff;
 $second-color-light: #f7f6f9;
 $text-color-light: #000;
+$search-hover-light: lightgray;
 
 $main-color-dark: #555;
 $second-color-dark: #000;
 $text-color-dark: #fff;
+$search-hover-black: rgb(43, 42, 42);
 
 :root[data-theme='light'] {
 	--main-bg-color: #{$main-color-light};
 	--second-bg-color: #{$second-color-light};
 	--text-color: #{$text-color-light};
+	--search-hover: #{$search-hover-light};
 }
 
 :root[data-theme='dark'] {
 	--main-bg-color: #{$main-color-dark};
 	--second-bg-color: #{$second-color-dark};
 	--text-color: #{$text-color-dark};
+	--search-hover: #{$search-hover-black};
 }
