@@ -13,7 +13,8 @@ const Highlights = () => {
 				<>
 					<div className={style.card}>
 						<div className={style.card__title}>UV Index</div>
-						<div className={style.card__index}></div>
+						<div className={style.card__index}>{Math.round(data.uv)}</div>
+            <div className={style.card__descr}></div>
 					</div>
 					<div className={style.card}>
 						<div className={style.card__title}>Wind Status</div>
@@ -21,7 +22,7 @@ const Highlights = () => {
 							{Math.round(data.wind_spd * 3.6)}
 							<span>km/h</span>
 						</div>
-						<div className={style.card__descr}>breeze</div>
+						<div className={style.card__descr}></div>
 					</div>
 					<div className={style.card}>
 						<div className={style.card__title}>Sunrise & Sunset</div>
@@ -45,9 +46,9 @@ const Highlights = () => {
 								{data.rh}
 								<span>%</span>
 							</div>
-							<img alt="График" />
+							<img width={40} src={`../src/img/humidity.png`} alt="График" />
 						</div>
-						<div className={style.card__descr}>Miserable</div>
+						<div className={style.card__descr}></div>
 					</div>
 					<div className={style.card}>
 						<div className={style.card__title}>Visibility</div>
@@ -55,7 +56,7 @@ const Highlights = () => {
 							{data.vis}
 							<span>km/h</span>
 						</div>
-						<div className={style.card__descr}>Good Visibility</div>
+						<div className={style.card__descr}></div>
 					</div>
 					<div className={style.card}>
 						<div className={style.card__title}>Min & Max temperature</div>

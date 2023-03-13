@@ -11,7 +11,6 @@ import style from './Content.module.scss';
 const Content = () => {
 	const dispatch = useDispatch();
 	const valueWeek = useSelector((state) => state.weatherWeek);
-	
 
 	const [unit, setUnit] = React.useState('');
 	const statusWeek = valueWeek.status;

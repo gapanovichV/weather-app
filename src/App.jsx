@@ -35,10 +35,8 @@ const App = () => {
 	}, []);
 
 	React.useEffect(() => {
-		return () => {
-			dispatch(fetchWeatherWeek({ lat, lon, units }));
-			dispatch(fetchWeather({ lat, lon, units }));
-		};
+		dispatch(fetchWeatherWeek({ lat, lon, units }));
+		dispatch(fetchWeather({ lat, lon, units }));
 	}, [units]);
 
 	return (

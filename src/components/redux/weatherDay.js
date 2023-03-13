@@ -6,7 +6,7 @@ const API = import.meta.env.VITE_API_WEATHER;
 
 export const fetchWeather = createAsyncThunk(
 	'weather/fetchWeather',
-	async function ({ lat, lon, units = 'm' }, { rejectWithValue }) {
+	async function ({ lat, lon, units }, { rejectWithValue }) {
 		try {
 			const res = await axios.get(
 				`https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lon}&lang=ru&key=${API}`,

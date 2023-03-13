@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	units: '',
+	units: 'm',
 	lat: 0,
 	lon: 0,
 };
